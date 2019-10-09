@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">LarrysApp</string>
+    <string name="string_login">Log in</string>
+    <string name="in_name">Name</string>
+    <string name="in_email">Email</string>
+    <string name="date_pick">Pick a date</string>
+    <string name="birth_date">Birth date</string>
+    <string name="add_hobby">Add a new Hobby</string>
+    <string name="add_hobby_btn">Add hobby</string>
+    <string name="view_hobby">View hobbies</string>
+    <string name="new_hobby">Your new hobby</string>
+    <string name="my_hobby">My hobbies</string>
+    <string name="all_stud">All students</string>
+    <string name="add_stud">Add student</string>
+    <string name="add_stud_btn">Add</string>
+    <string name="fname">First name</string>
+    <string name="password">Password</string>
+    <string name="lname">Last name</string>
+    <string name="course">Course name</string>
+    <string name="chk_remember">Remember me</string>
+</resources>
