@@ -69,6 +69,7 @@
         android:layout_marginEnd="15dp"
         android:layout_marginTop="35dp"
         android:text="@string/date_pick"
+        android:onClick="showDatePicker"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_password" />
@@ -103,5 +104,6 @@
         android:text="@string/string_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:onClick="login"
         app:layout_constraintTop_toBottomOf="@+id/chk_rememberMe" />
 </androidx.constraintlayout.widget.ConstraintLayout>
