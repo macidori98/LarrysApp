@@ -1,5 +1,6 @@
 package com.example.larrysapp;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.os.Bundle;
@@ -7,7 +8,9 @@ import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -23,14 +26,18 @@ public class DatePickerFragment extends DialogFragment {
         this.month = c.get(Calendar.MONTH);
         this.day = c.get(Calendar.DAY_OF_MONTH);
 
-        return new DatePickerDialog(getActivity(), dateSetListener, year, month, day);
+        DatePickerDialog dpd = new DatePickerDialog(getActivity(), dateSetListener, year, month, day);
+        /*LoginActivity la = new LoginActivity();
+        la.tv_birthDate.setText(getYear() + " " + getMonth() + " " + getDay());*/
+        Toast.makeText(getContext(), getYear(), Toast.LENGTH_SHORT).show();
+        return dpd;
     }
+
 
     private DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
                 public void onDateSet(DatePicker view, int year, int month, int day) {
-                    /*DatePickerFragment.this.setYear(String.valueOf(view.getYear()));
-                    DatePickerFragment.this.setMonth(String.valueOf(view.getMonth()+1)) ;
-                    DatePickerFragment.this.setDay(String.valueOf(view.getDayOfMonth()));*/
+                    LoginActivity la = (LoginActivity) getActivity();
+                    la.tv_birthDate.setText(view.getYear() + " " + (view.getMonth()+1) + " " + view.getDayOfMonth());
                 }
             };
 
@@ -38,23 +45,4 @@ public class DatePickerFragment extends DialogFragment {
         return String.valueOf(year);
     }
 
-    public String getMonth() {
-        return String.valueOf(month);
-    }
-
-    public String getDay() {
-        return String.valueOf(day);
-    }
-
-    public void setYear(int year) {
-        this.year = year;
-    }
-
-    public void setMonth(int month) {
-        this.month = month;
-    }
-
-    public void setDay(int day) {
-        this.day = day;
-    }
 }

@@ -20,6 +20,7 @@ public class LoginActivity extends AppCompatActivity {
     String chkbox_value;
     TextView tv_birthDate;
     String year, month, day;
+    DatePickerFragment newFragment;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,13 +46,9 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void showDatePicker(View v) {
-        DatePickerFragment newFragment = new DatePickerFragment();
+        newFragment = new DatePickerFragment();
         newFragment.show(getSupportFragmentManager(), "date picker");
-        year = newFragment.getYear();
-        month = newFragment.getMonth();
-        day = newFragment.getDay();
-        tv_birthDate = findViewById(R.id.tv_birthDate);
-        tv_birthDate.setText("dsfg");
+        //Toast.makeText(this, newFragment.toString(), Toast.LENGTH_SHORT).show();
     }
 
     public void login(View v) {
@@ -60,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
             sharedPreferences.putString("name", et_name.getText().toString());
             sharedPreferences.putString("email", et_email.getText().toString());
             sharedPreferences.putString("password", et_password.getText().toString());
-            sharedPreferences.putString("date", year + " " + month + " " + day);
+            sharedPreferences.putString("date", tv_birthDate.getText().toString());
             sharedPreferences.putString("rememberMe", "igen");
             sharedPreferences.apply();
         } else {
