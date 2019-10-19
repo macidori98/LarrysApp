@@ -29,7 +29,7 @@ public class DatePickerFragment extends DialogFragment {
         DatePickerDialog dpd = new DatePickerDialog(getActivity(), dateSetListener, year, month, day);
         /*LoginActivity la = new LoginActivity();
         la.tv_birthDate.setText(getYear() + " " + getMonth() + " " + getDay());*/
-        Toast.makeText(getContext(), getYear(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getContext(), getYear(), Toast.LENGTH_SHORT).show();
         return dpd;
     }
 

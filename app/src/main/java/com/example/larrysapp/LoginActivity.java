@@ -13,13 +13,16 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
+import java.util.StringTokenizer;
+
 public class LoginActivity extends AppCompatActivity {
     public static final String MY_SHARED_PREFERENCES = "LoginData";
     EditText et_name, et_email, et_password;
     CheckBox chkBox;
     String chkbox_value;
     TextView tv_birthDate;
-    String year, month, day;
+    String year, month, day, temp;
+    String[] date;
     DatePickerFragment newFragment;
 
     @Override
@@ -41,6 +44,12 @@ public class LoginActivity extends AppCompatActivity {
             et_email.setText(sharedPreferences.getString("email", "email"));
             et_password.setText(sharedPreferences.getString("password", "password"));
             tv_birthDate.setText(sharedPreferences.getString("date", "birth"));
+            temp = tv_birthDate.getText().toString();
+            date = temp.split(" ");
+            year = date[0];
+            month = date[1];
+            day = date[2];
+            //Toast.makeText(this, year, Toast.LENGTH_SHORT).show();
             chkBox.setChecked(true);
         }
     }
