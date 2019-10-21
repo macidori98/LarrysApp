@@ -1,6 +1,7 @@
 package com.example.larrysapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -17,13 +18,15 @@ import java.util.StringTokenizer;
 
 public class LoginActivity extends AppCompatActivity {
     public static final String MY_SHARED_PREFERENCES = "LoginData";
-    EditText et_name, et_email, et_password;
-    CheckBox chkBox;
-    String chkbox_value;
-    TextView tv_birthDate;
-    String year, month, day, temp;
-    String[] date;
-    DatePickerFragment newFragment;
+    private EditText et_name, et_email, et_password;
+    private CheckBox chkBox;
+    private String chkbox_value;
+    public TextView tv_birthDate;
+    private String year, month, day, temp;
+    private String[] date;
+    private DatePickerFragment newFragment;
+    private String list = "info.androidhive.sqlite";
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -78,5 +81,7 @@ public class LoginActivity extends AppCompatActivity {
             sharedPreferences.putString("rememberMe", "nem");
             sharedPreferences.apply();
         }
+        final Intent intent = getPackageManager().getLaunchIntentForPackage(list);//new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }
